@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="nav-left">
+                    <img src="logo.svg" alt="sneakers" class="logo"> <ul>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <img src="icon-cart.svg" alt="cart" class="cart-icon">
+                    <img src="image-avatar.png" alt="user" class="avatar">
+                </div>
+            </nav>
+            <hr>
+        </header>
+
+        <main class="product-page">
+            <section class="gallery">
+                <div class="main-img">
+                    <img src="image-product-1.jpg" alt="Sneakers" id="current-img">
+                </div>
+                <div class="thumbnails">
+                    <img src="image-product-1.jpg" class="active" onclick="changeImg('image-product-1.jpg')">
+                    <img src="image-product-2.jpg" onclick="changeImg('image-product-2.jpg')">
+                    <img src="image-product-3.jpg" onclick="changeImg('image-product-3.jpg')">
+                    <img src="image-product-4.jpg" onclick="changeImg('image-product-4.jpg')">
+                </div>
+            </section>
+
+            <section class="details">
+                <span class="company-name">SNEAKER COMPANY</span>
+                <h1>Fall Limited Edition Sneakers</h1>
+                <p class="description">
+                    These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.
+                </p>
+
+                <div class="price-section">
+                    <div class="current-price">
+                        <span class="price">$125.00</span>
+                        <span class="discount">50%</span>
+                    </div>
+                    <span class="old-price">$250.00</span>
+                </div>
+
+                <div class="actions">
+                    <div class="counter">
+                        <button class="minus">-</button>
+                        <span class="count">0</span>
+                        <button class="plus">+</button>
+                    </div>
+                    <button class="add-to-cart">
+                        <img src="icon-cart.svg" alt="" class="btn-cart-icon">
+                        Add to cart
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function changeImg(src) {
+            document.getElementById('current-img').src = src;
+        }
+        const minusBtn = document.querySelector('.minus');
+const plusBtn = document.querySelector('.plus');
+const countDisplay = document.querySelector('.count');
+const addToCartBtn = document.querySelector('.add-to-cart');
+
+let currentCount = 0;
+
+minusBtn.addEventListener('click', () => {
+    if (currentCount > 0) {
+        currentCount--;
+        countDisplay.textContent = currentCount;
+    }
+});
+
+plusBtn.addEventListener('click', () => {
+    currentCount++;
+    countDisplay.textContent = currentCount;
+});
+
+addToCartBtn.addEventListener('click', () => {
+    if (currentCount > 0) {
+        alert('Added to cart: ' + currentCount);
+    }
+});
+    </script>
+</body>
+</html>
